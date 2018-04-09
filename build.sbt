@@ -10,7 +10,7 @@ crossScalaVersions := Seq("2.11.8")
 
 organization := "net.kenro-ji-jin"
 
-version := Try(sys.env("LIB_VERSION")).getOrElse("1")
+version := "0.0.1-SNAPSHOT"
 
 resolvers += "Tim Tennant's repo" at "http://dl.bintray.com/timt/repo/"
 
@@ -27,10 +27,6 @@ libraryDependencies += "org.scalactic" %% "scalactic" % "2.2.6"
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
 
 libraryDependencies += "net.kenro-ji-jin" % "docs4s_2.11" % "15"
-
-pgpPassphrase := Some(Try(sys.env("SECRET")).getOrElse("goaway").toCharArray)
-
-pgpSecretRing := file("./publish/sonatype.asc")
 
 bintrayPublishSettings
 

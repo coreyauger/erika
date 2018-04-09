@@ -9,9 +9,15 @@ class ChromeOptions {
   private var urlBase = ""
   private var whitelistedIps = ""
   private var portServer = ""
+  private var windowSize = ""
 
   def setAdbPort(value: String) = {
     adbPort = s"--adbPort=$value"
+    this
+  }
+
+  def setWindowSize(w: Int, h: Int) = {
+    windowSize = s"--window-size=${w},${h}"
     this
   }
 
@@ -46,7 +52,7 @@ class ChromeOptions {
   }
 
   def getOptions: String = {
-    List(adbPort, logPath, verbose, silent, urlBase, whitelistedIps, portServer).filterNot(o => o.isEmpty).mkString(" ")
+    List(windowSize, adbPort, logPath, verbose, silent, urlBase, whitelistedIps, portServer).filterNot(o => o.isEmpty).mkString(" ")
   }
 
 }
